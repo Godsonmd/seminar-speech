@@ -85,7 +85,7 @@ We define a configuration object that sets up:
 
 For example:
 
-js
+```js
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -93,7 +93,7 @@ const config = {
   scene: { preload, create, update }
 };
 new Phaser.Game(config);
-
+```
 
 This is the skeleton of every Phaser project.”
 
@@ -120,16 +120,16 @@ In Phaser, we load them during preload to ensure they’re ready before the game
 
 Example:
 
-js
+```js
 this.load.image('player', 'player.png');
 this.load.audio('bgm', 'music.mp3');
-
+```
 
 Later in create, we can add them with:
 
-js
+```js
 this.add.image(400, 300, 'player');
-
+```
 
 Without proper asset management, our game would either crash or show blank areas. Preloading ensures smooth gameplay.”
 
@@ -141,10 +141,10 @@ Without proper asset management, our game would either crash or show blank areas
 
 Example for keyboard:
 
-js
+```js
 cursors = this.input.keyboard.createCursorKeys();
 if (cursors.left.isDown) { player.x -= 5; }
-
+```
 
 This simple line lets the player move left when the arrow key is pressed.
 
@@ -181,9 +181,9 @@ Phaser allows us to choose the engine depending on our needs: simple for speed, 
 In Phaser, collisions are easy to implement using physics groups and colliders.
 For example:
 
-js
+```js
 this.physics.add.collider(player, platforms);
-
+```
 
 This line ensures that the player can stand on platforms and won’t fall through them.
 
@@ -197,9 +197,9 @@ With collisions, we can design realistic interactions and challenges in our game
 
 In Phaser, we can easily apply gravity:
 
-js
+```js
 this.physics.world.gravity.y = 300;
-
+```
 
 This pulls objects downward. We can adjust the value to make the game easier or harder. Without gravity, everything would float unnaturally, so it’s a key element in most games.”
 
@@ -212,9 +212,9 @@ The camera can follow the player as they move, zoom in for close-ups, or shake d
 
 Example:
 
-js
+```js
 this.cameras.main.startFollow(player);
-
+```
 
 This ensures the player is always centered, giving the feel of exploration.
 Camera effects add drama and immersion, making the game more exciting.”
@@ -229,14 +229,14 @@ For example, a walking animation cycles through different leg positions to simul
 
 In Phaser:
 
-js
+```js
 this.anims.create({
   key: 'walk',
   frames: this.anims.generateFrameNumbers('player', { start: 0, end: 3 }),
   frameRate: 10,
   repeat: -1
 });
-
+```
 
 This creates a smooth walking cycle that repeats endlessly. Animations make the game more engaging.”
 
@@ -259,9 +259,9 @@ This reduces memory usage and makes the game load faster. Spritesheets are essen
 
 Phaser uses *Scenes* to organize these. Each scene is like a separate file or state. We can switch between them smoothly:
 
-js
+```js
 this.scene.start('Level1');
-
+```
 
 This modular approach makes development easier and allows teams to divide work across scenes.”
 
@@ -314,9 +314,9 @@ This layering is crucial to maintain visual clarity in games.”
 
 Phaser lets us add background music and sound effects easily:
 
-js
+```js
 this.sound.play('jump');
-
+```
 
 We can loop sounds, adjust volume, or trigger effects when specific events happen.
 Sound makes actions feel satisfying and immerses the player in the game world.”
@@ -329,9 +329,9 @@ Sound makes actions feel satisfying and immerses the player in the game world.�
 
 In Phaser, scores are usually displayed using text objects:
 
-js
+```js
 scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px' });
-
+```
 
 As the player achieves something, we update the text.
 This simple mechanic adds competition and replay value to the game.”
